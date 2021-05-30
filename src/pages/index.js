@@ -1,7 +1,22 @@
+import React, { useEffect } from 'react';
+
 import Head from 'next/head';
+
+import { getHomeList } from '../services/api.js';
+
 import styles from '../../styles/Home.module.css';
 
 export default function Home() {
+	useEffect(() => {
+		const loadAll = async () => {
+			//Get all the list
+			let list = await getHomeList();
+			console.log(list);
+		};
+
+		loadAll();
+	}, []);
+
 	return (
 		<div className={styles.container}>
 			<Head>
