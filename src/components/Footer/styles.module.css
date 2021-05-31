@@ -1,0 +1,74 @@
+.footer {
+	width: 100%;
+	margin-top: 5rem;
+	display: grid;
+	color: var(--gray-200);
+}
+.icons {
+	margin-right: 1rem;
+}
+
+.icons a:link,
+.icons a:visited,
+.cons a:hover,
+.icons a:active {
+	color: var(--gray-200);
+}
+.icons svg {
+	margin-right: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.info {
+	margin: 0 auto;
+}
+
+.info p {
+	margin: 1rem 0;
+}
+
+.info p a:link,
+.info p a:visited,
+.info p a:active {
+	color: var(--gray-200);
+	text-decoration: none;
+}
+.info p a:hover {
+	text-decoration: underline;
+}
+
+.info p:last-child {
+	margin-bottom: 2rem;
+}
+.list {
+	display: grid;
+	grid-template-columns: repeat(4, 200px);
+	gap: 1rem;
+}
+
+.list ul {
+	list-style: none;
+	color: var(--gray-200);
+}
+
+.list li {
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.list span:hover {
+	width: 100%;
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.footer p,
+	.footer span {
+		font-size: 0.75rem;
+	}
+	.info {
+		margin-left: 2rem;
+	}
+	.list {
+		grid-template-columns: repeat(2, 150px);
+	}
+}

@@ -7,6 +7,7 @@ import { getHomeList, getMovieInfo } from '../services/api.js';
 import { Featured } from '../components/Featured/index.js';
 import { Header } from '../components/Header/index.js';
 import { MovieRow } from '../components/MovieRow/index.js';
+import { Footer } from '../components/Footer/index.js';
 
 import styles from '../../styles/Home.module.css';
 
@@ -64,6 +65,7 @@ export default function Home({ list }) {
 					<MovieRow key={key} title={item.title} items={item.items} />
 				))}
 			</section>
+			<Footer />
 		</div>
 	);
 }
