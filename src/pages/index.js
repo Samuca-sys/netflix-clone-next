@@ -5,12 +5,14 @@ import Head from 'next/head';
 import { getHomeList, getMovieInfo } from '../services/api.js';
 
 import { Featured } from '../components/Featured/index.js';
+import { Header } from '../components/Header/index.js';
 import { MovieRow } from '../components/MovieRow/index.js';
 
 import styles from '../../styles/Home.module.css';
 
 export default function Home({ list }) {
 	const [featuredData, setFeaturedData] = useState(null);
+	const [blackHeader, setBlackHeader] = useState(false);
 
 	useEffect(() => {
 		const loadAll = async () => {
@@ -32,12 +34,29 @@ export default function Home({ list }) {
 		loadAll();
 	}, []);
 
+	useEffect(() => {
+		const scrollListener = () => {
+			if (window.scrollY > 10) {
+				setBlackHeader(true);
+			} else {
+				setBlackHeader(false);
+			}
+		};
+
+		window.addEventListener('scroll', scrollListener);
+
+		return () => {
+			window.removeEventListener('scroll', scrollListener);
+		};
+	}, []);
+
 	return (
 		<div className={styles.container}>
 			<Head>
 				<title>Netflix</title>
 				<meta name='description' content='Netflix clone home' />
 			</Head>
+			<Header background={blackHeader} />
 
 			{featuredData && <Featured item={featuredData} />}
 			<section className={styles.lists}>
