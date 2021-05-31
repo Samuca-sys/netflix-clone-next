@@ -14,6 +14,7 @@ import styles from '../../styles/Home.module.css';
 export default function Home({ list }) {
 	const [featuredData, setFeaturedData] = useState(null);
 	const [blackHeader, setBlackHeader] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const loadAll = async () => {
@@ -27,6 +28,7 @@ export default function Home({ list }) {
 				let chosenInfo = await getMovieInfo(chosen.id, 'tv');
 
 				setFeaturedData(chosenInfo);
+				setIsLoading(false);
 			} catch (error) {
 				console.log(error, 'Error getting home data');
 			}
@@ -58,14 +60,24 @@ export default function Home({ list }) {
 				<meta name='description' content='Netflix clone home' />
 			</Head>
 			<Header background={blackHeader} />
-
-			{featuredData && <Featured item={featuredData} />}
-			<section className={styles.lists}>
-				{list.map((item, key) => (
-					<MovieRow key={key} title={item.title} items={item.items} />
-				))}
-			</section>
-			<Footer />
+			{isLoading ? (
+				<div className={styles.loading}>
+					<img
+						src='https://cdn.lowgif.com/small/0534e2a412eeb281-the-counterintuitive-tech-behind-netflix-s-worldwide.gif'
+						alt='loading'
+					/>
+				</div>
+			) : (
+				<>
+					{featuredData && <Featured item={featuredData} />}
+					<section className={styles.lists}>
+						{list.map((item, key) => (
+							<MovieRow key={key} title={item.title} items={item.items} />
+						))}
+					</section>
+					<Footer />
+				</>
+			)}
 		</div>
 	);
 }
