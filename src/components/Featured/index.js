@@ -36,12 +36,12 @@ export function Featured({ item }) {
 					</div>
 					<p>{description}</p>
 					<div className={styles.buttons}>
-						<a href={`/watch/${item.id}`} className={styles.watchButton}>
+						<a href='#' className={styles.watchButton}>
 							<button>
 								<IoIosPlay /> Assistir
 							</button>
 						</a>
-						<a href={`/list/add/${item.id}`} className={styles.myListButton}>
+						<a href='#' className={styles.myListButton}>
 							<button>
 								<HiPlus /> Minha Lista
 							</button>
