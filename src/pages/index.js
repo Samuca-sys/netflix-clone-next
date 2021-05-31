@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import Head from 'next/head';
 
@@ -9,12 +9,15 @@ import { Header } from '../components/Header/index.js';
 import { MovieRow } from '../components/MovieRow/index.js';
 import { Footer } from '../components/Footer/index.js';
 
+import { HomeContext } from '../contexts/HomeContext.js';
+
 import styles from '../../styles/Home.module.css';
 
 export default function Home({ list }) {
 	const [featuredData, setFeaturedData] = useState(null);
-	const [blackHeader, setBlackHeader] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const { blackHeader } = useContext(HomeContext);
 
 	useEffect(() => {
 		const loadAll = async () => {
@@ -35,22 +38,6 @@ export default function Home({ list }) {
 		};
 
 		loadAll();
-	}, []);
-
-	useEffect(() => {
-		const scrollListener = () => {
-			if (window.scrollY > 10) {
-				setBlackHeader(true);
-			} else {
-				setBlackHeader(false);
-			}
-		};
-
-		window.addEventListener('scroll', scrollListener);
-
-		return () => {
-			window.removeEventListener('scroll', scrollListener);
-		};
 	}, []);
 
 	return (
