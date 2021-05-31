@@ -24,7 +24,6 @@ export default function Home({ list }) {
 				let chosenInfo = await getMovieInfo(chosen.id, 'tv');
 
 				setFeaturedData(chosenInfo);
-				console.log(chosenInfo);
 			} catch (error) {
 				console.log(error, 'Error getting home data');
 			}

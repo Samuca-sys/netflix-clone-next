@@ -1,0 +1,109 @@
+.featured {
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+.verticalGradient {
+	width: inherit;
+	height: inherit;
+	background: linear-gradient(to top, var(--gray-500) 10%, transparent 90%);
+}
+
+.horizontalGradient {
+	width: inherit;
+	height: inherit;
+	background: linear-gradient(to right, var(--gray-500) 30%, transparent 70%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 2rem;
+	padding-top: 70px;
+}
+
+.horizontalGradient h1 {
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+.info {
+	font-weight: bold;
+	margin-top: 1rem;
+	display: flex;
+}
+
+.info span {
+	margin-right: 1rem;
+	font-size: 1.25rem;
+}
+span.points {
+	color: var(--green);
+}
+.horizontalGradient > h1 {
+	margin-top: -10rem;
+}
+.horizontalGradient p {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	color: var(--gray-200);
+	max-width: 40%;
+}
+
+.buttons {
+	margin-top: 1rem;
+	display: flex;
+}
+.buttons button {
+	border: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 0.5rem 1.5rem;
+	border-radius: 5px;
+	margin-right: 1rem;
+	opacity: 1;
+	transition: all ease 0.2s;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+a.watchButton,
+a.myListButton {
+	text-decoration: none;
+}
+a.watchButton button {
+	background: var(--white);
+	color: var(--black);
+	cursor: pointer;
+}
+a.myListButton button {
+	background: var(--gray-300);
+	color: var(--white);
+	cursor: pointer;
+}
+a.watchButton button:hover,
+a.myListButton button:hover {
+	opacity: 0.7;
+}
+
+p.genres,
+.genres strong {
+	font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+	.horizontalGradient h1 {
+		font-size: 2rem;
+	}
+	.horizontalGradient p {
+		max-width: 70%;
+		font-size: 1.15rem;
+	}
+	.buttons button {
+		font-size: 1.25rem;
+	}
+	p.genres,
+	.genres strong {
+		font-size: 1rem;
+		max-width: 80%;
+	}
+}
